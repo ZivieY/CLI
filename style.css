@@ -1,20 +1,20 @@
 /* ============================================================
-   Children's Literacy Impact â€” design tokens
+   Children's Literacy Impact — design tokens
    Palette: sand/tan (warmth of the page) + soft sky (openness,
-   imagination). Signature motif: the "tail" â€” a soft fuzzy
+   imagination). Signature motif: the "tail" — a soft fuzzy
    puff used as a bullet, marker and divider throughout, a nod
    to Bunny Tails, the youth publication at the heart of the site.
 
-   SCRAPPY PASS â€” same classes/tokens, dressed up as a kid's
+   SCRAPPY PASS — same classes/tokens, dressed up as a kid's
    scrapbook: torn paper edges, taped-down photos, wobbly
    paper-cutout cards, and a couple of loose brush-stroke marks.
-   No HTML changes required â€” every selector name is untouched.
+   No HTML changes required — every selector name is untouched.
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&family=Kalam:wght@400;700&display=swap');
 
 :root{
-  /* palette â€” unchanged from the original tokens */
+  /* palette — unchanged from the original tokens */
   --tan: #C6A477;
   --gold: #ECD59F;
   --sky-1: #D3E7EE;
@@ -29,13 +29,13 @@
   /* type */
   --display: 'Playfair Display', serif; /* editorial italic+upright pairing, matches the mood board titles */
   --label: 'Quicksand', sans-serif;
-  --body: 'Inter', sans-serif; /* kept a plain sans for real reading copy â€” forms, paragraphs â€” so the site stays legible at length */
+  --body: 'Inter', sans-serif; /* kept a plain sans for real reading copy — forms, paragraphs — so the site stays legible at length */
   --hand: 'Kalam', cursive; /* uniform-stroke marker hand, closer to the mood board's notes/arrows than a calligraphic script */
 
-  /* scrappy paper-cutout radius for cards â€” same variable name, wobbly value */
+  /* scrappy paper-cutout radius for cards — same variable name, wobbly value */
   --radius: 255px 18px 225px 20px / 20px 225px 18px 255px;
   --radius-sm: 120px 10px 110px 12px / 12px 110px 10px 120px;
-  /* near-square radius for photos/frames â€” just enough softening to still read as a cut paper edge */
+  /* near-square radius for photos/frames — just enough softening to still read as a cut paper edge */
   --radius-img: 14px;
 
   /* flat "cut paper" shadow stacked with a soft ambient one */
@@ -45,7 +45,7 @@
   /* grain: a cheap fractal-noise SVG tiled behind paper backgrounds */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.2 0 0 0 0 0.16 0 0 0 0.11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
-  /* loose brush-stroke marks used behind active/hover text â€” original palette colors only */
+  /* loose brush-stroke marks used behind active/hover text — original palette colors only */
   --brush-sky: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Cpath d='M3 16 Q40 4 75 14 T150 10 T197 15' stroke='%237097A8' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   --brush-tan: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Cpath d='M3 16 Q40 4 75 14 T150 10 T197 15' stroke='%23C6A477' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 
@@ -84,7 +84,7 @@ h1{ font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.05; font-weight: 600; }
 h2{ font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; }
 h3{ font-size: 1.25rem; }
 
-/* the italic word stays a touch lighter than its upright neighbor â€”
+/* the italic word stays a touch lighter than its upright neighbor —
    the thin-italic / bold-upright pairing seen throughout the mood board */
 .hero h1 em, .quote-box em{ font-weight: 500; }
 
@@ -128,7 +128,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============================================================
-   Book motif â€” signature element
+   Book motif — signature element
    ============================================================ */
 .book{
   display: inline-block;
@@ -153,7 +153,7 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
 .icon-list .book{ margin-top: 3px; }
 
 /* ============================================================
-   Placeholder box â€” swap in your own image
+   Placeholder box — swap in your own image
    Now reads as a taped-down cutout photo.
    ============================================================ */
 .img-placeholder{
@@ -193,7 +193,7 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
   transform: rotate(-5deg);
 }
 
-/* torn/zigzag divider between hero / sections â€” jagged paper-tear
+/* torn/zigzag divider between hero / sections — jagged paper-tear
    teeth rather than a smooth scallop, same class names */
 .scallop{
   width: 100%;
@@ -448,7 +448,7 @@ section{ padding: 78px 0; }
 .section-band-sky{ background: linear-gradient(180deg, #E7F1F4, var(--sky-1)); }
 
 /* ============================================================
-   Frame cards â€” About Us page (mirrors the wireframe's stacked,
+   Frame cards — About Us page (mirrors the wireframe's stacked,
    rounded frames on a soft neutral backdrop)
    ============================================================ */
 .frame-section{ background-color: #F0F1F6; background-image: var(--grain); background-blend-mode: multiply; padding: 56px 0 70px; }
@@ -478,21 +478,15 @@ section{ padding: 78px 0; }
 .frame-card.accent{ border: 2px solid var(--sky-3); }
 
 .quote-box{
-  position: relative;
-  background-color: var(--paper);
-  background-image: var(--grain);
-  background-blend-mode: multiply;
-  border: 1px dashed rgba(59,52,42,.3);
-  border-radius: var(--radius-sm);
-  padding: 30px 40px;
   text-align: center;
-  font-family: var(--hand);
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--ink);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: var(--sky-3);
   max-width: 640px;
   margin: 34px auto 0;
-  transform: rotate(-.8deg);
 }
 
 .do-list{ display: grid; gap: 26px; }
