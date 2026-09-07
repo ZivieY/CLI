@@ -1,17 +1,17 @@
 /* ============================================================
-   Children's Literacy Impact — design tokens
+   Children's Literacy Impact â€” design tokens
    Palette: sand/tan (warmth of the page) + soft sky (openness,
-   imagination). Signature motif: the "tail" — a soft fuzzy
+   imagination). Signature motif: the "tail" â€” a soft fuzzy
    puff used as a bullet, marker and divider throughout, a nod
    to Bunny Tails, the youth publication at the heart of the site.
 
-   SCRAPPY PASS — same classes/tokens, dressed up as a kid's
+   SCRAPPY PASS â€” same classes/tokens, dressed up as a kid's
    scrapbook: torn paper edges, taped-down photos, wobbly
    paper-cutout cards, and a couple of loose brush-stroke marks.
-   No HTML changes required — every selector name is untouched.
+   No HTML changes required â€” every selector name is untouched.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&family=Kalam:wght@400;700&display=swap');
 
 :root{
   /* palette */
@@ -25,12 +25,14 @@
   --ink: #3B342A;
   --ink-soft: #6B6153;
   --white: #FFFFFF;
+  --navy: #223A5E; /* the ink/label-tag navy from the reference mood board */
+  --navy-soft: #3F587A;
 
   /* type */
-  --display: 'Fraunces', serif;
+  --display: 'Playfair Display', serif; /* editorial italic+upright pairing, matches the mood board titles */
   --label: 'Quicksand', sans-serif;
-  --body: 'Inter', sans-serif;
-  --hand: 'Caveat', cursive; /* marker/handwriting accent */
+  --body: 'Inter', sans-serif; /* kept a plain sans for real reading copy â€” forms, paragraphs â€” so the site stays legible at length */
+  --hand: 'Kalam', cursive; /* uniform-stroke marker hand, closer to the mood board's notes/arrows than a calligraphic script */
 
   /* scrappy paper-cutout radius: same variable name, wobbly value */
   --radius: 255px 18px 225px 20px / 20px 225px 18px 255px;
@@ -46,6 +48,10 @@
   /* two loose brush-stroke marks used behind active/hover text */
   --brush-sky: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Cpath d='M3 16 Q40 4 75 14 T150 10 T197 15' stroke='%237097A8' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   --brush-tan: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Cpath d='M3 16 Q40 4 75 14 T150 10 T197 15' stroke='%23C6A477' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  --brush-navy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Cpath d='M3 16 Q40 4 75 14 T150 10 T197 15' stroke='%23223A5E' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  /* a small hand-drawn arrow, like the pen doodles pointing at labels in the mood board */
+  --doodle-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 24'%3E%3Cpath d='M2 18 Q18 4 36 10' stroke='%23223A5E' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M28 6 L36 10 L30 16' stroke='%23223A5E' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
@@ -69,15 +75,19 @@ a{ color: inherit; text-decoration: none; }
 
 h1, h2, h3{
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--ink);
   margin: 0 0 .5em;
   letter-spacing: -0.01em;
 }
 
-h1{ font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.05; font-weight: 500; }
+h1{ font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.05; font-weight: 600; }
 h2{ font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; }
 h3{ font-size: 1.25rem; }
+
+/* the italic word stays a touch lighter than its upright neighbor â€”
+   the thin-italic / bold-upright pairing seen throughout the mood board */
+.hero h1 em, .quote-box em{ font-weight: 500; }
 
 p{ margin: 0 0 1em; color: var(--ink-soft); }
 
@@ -87,9 +97,14 @@ p{ margin: 0 0 1em; color: var(--ink-soft); }
   letter-spacing: .01em;
   text-transform: none;
   font-size: 1.35rem;
-  color: var(--sky-3);
+  color: var(--navy);
   display: inline-block;
   transform: rotate(-2deg);
+  padding-right: 34px;
+  background-image: var(--doodle-arrow);
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  background-size: 30px 18px;
 }
 
 .container{
@@ -114,7 +129,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============================================================
-   Book motif — signature element
+   Book motif â€” signature element
    ============================================================ */
 .book{
   display: inline-block;
@@ -139,7 +154,7 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
 .icon-list .book{ margin-top: 3px; }
 
 /* ============================================================
-   Placeholder box — swap in your own image
+   Placeholder box â€” swap in your own image
    Now reads as a taped-down cutout photo.
    ============================================================ */
 .img-placeholder{
@@ -179,7 +194,7 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
   transform: rotate(-5deg);
 }
 
-/* torn/zigzag divider between hero / sections — jagged paper-tear
+/* torn/zigzag divider between hero / sections â€” jagged paper-tear
    teeth rather than a smooth scallop, same class names */
 .scallop{
   width: 100%;
@@ -273,7 +288,7 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
 .nav-links a:hover{ color: var(--sky-3); }
 .nav-links a.active{
   color: var(--ink);
-  background-image: var(--brush-tan);
+  background-image: var(--brush-navy);
   background-size: 100% 12px;
 }
 
@@ -354,11 +369,11 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
   font-family: var(--label);
   font-weight: 700;
   font-size: .88rem;
-  color: var(--sky-3);
+  color: var(--navy);
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background-image: var(--brush-sky);
+  background-image: var(--brush-navy);
   background-repeat: no-repeat;
   background-position: left bottom -1px;
   background-size: 0 10px;
@@ -395,7 +410,7 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
   align-items: center;
   padding-bottom: 60px;
 }
-.hero h1 em{ font-style: italic; color: var(--sky-3); }
+.hero h1 em{ font-style: italic; color: var(--navy); }
 .hero-lede{ font-size: 1.08rem; max-width: 46ch; }
 .hero-actions{ display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
 
@@ -434,7 +449,7 @@ section{ padding: 78px 0; }
 .section-band-sky{ background: linear-gradient(180deg, #E7F1F4, var(--sky-1)); }
 
 /* ============================================================
-   Frame cards — About Us page (mirrors the wireframe's stacked,
+   Frame cards â€” About Us page (mirrors the wireframe's stacked,
    rounded frames on a soft neutral backdrop)
    ============================================================ */
 .frame-section{ background: #F0F1F6; padding: 56px 0 70px; }
@@ -473,7 +488,7 @@ section{ padding: 78px 0; }
   font-family: var(--hand);
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--ink);
+  color: var(--navy);
   max-width: 640px;
   margin: 34px auto 0;
   transform: rotate(-.8deg);
@@ -533,7 +548,7 @@ section{ padding: 78px 0; }
 .stat{ min-width: 130px; }
 .stat .num{
   font-family: var(--display); font-size: 2.2rem; color: var(--ink); display:inline-block;
-  background-image: var(--brush-sky);
+  background-image: var(--brush-navy);
   background-repeat: no-repeat;
   background-position: left bottom 2px;
   background-size: 100% 14px;
@@ -563,7 +578,7 @@ section{ padding: 78px 0; }
 }
 .team-photo:hover{ transform: rotate(0deg) scale(1.01); }
 .team-card h3{ margin-bottom: 2px; }
-.team-card .role{ font-family: var(--hand); font-weight: 700; font-size: 1.05rem; color: var(--sky-3); text-transform: none; letter-spacing: 0; margin-bottom: 6px; display:block; }
+.team-card .role{ font-family: var(--hand); font-weight: 700; font-size: 1.05rem; color: var(--navy); text-transform: none; letter-spacing: 0; margin-bottom: 6px; display:block; }
 .team-card p{ font-size: .92rem; margin: 0; }
 @media (max-width: 760px){ .team-grid{ grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; } }
 
@@ -615,7 +630,7 @@ section{ padding: 78px 0; }
 .piece-card:hover .piece-cover{ transform: translateY(-4px) rotate(0deg); }
 .piece-title{ font-family: var(--display); font-size: 1.02rem; margin-bottom: 2px; }
 .piece-meta{ font-size: .82rem; color: var(--ink-soft); margin-bottom: 2px; }
-.piece-tag{ font-family: var(--hand); font-size: 1rem; font-weight: 700; color: var(--sky-3); text-transform: none; letter-spacing: 0; }
+.piece-tag{ font-family: var(--hand); font-size: 1rem; font-weight: 700; color: var(--navy); text-transform: none; letter-spacing: 0; }
 
 /* ============================================================
    Guidelines (Publish page)
@@ -736,7 +751,7 @@ section{ padding: 78px 0; }
 .involve-grid .involve-card:nth-child(even){ transform: rotate(.6deg); }
 .involve-card .badge{
   font-family: var(--hand); font-weight: 700; font-size: 1.05rem;
-  text-transform: none; letter-spacing: 0; color: var(--sky-3);
+  text-transform: none; letter-spacing: 0; color: var(--navy);
 }
 .involve-card .note{
   font-size: .85rem; font-style: italic; color: var(--ink-soft);
@@ -841,7 +856,7 @@ section{ padding: 78px 0; }
 .contact-grid .contact-card:first-child{ transform: rotate(-.7deg); }
 .contact-grid .contact-card:last-child{ transform: rotate(.7deg); }
 .contact-card h3{ display:flex; align-items:center; gap:10px; margin-bottom: 12px; }
-.contact-card .value{ font-family: var(--hand); font-style: normal; font-size: 1.4rem; color: var(--sky-3); }
+.contact-card .value{ font-family: var(--hand); font-style: normal; font-size: 1.4rem; color: var(--navy); }
 
 .form-grid{ display: grid; gap: 18px; margin-top: 28px; max-width: 560px; }
 label{ font-family: var(--label); font-weight: 700; font-size: .82rem; display: block; margin-bottom: 6px; }
