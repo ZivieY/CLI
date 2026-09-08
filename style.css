@@ -418,19 +418,9 @@ li:hover > .book, h3:hover > .book{ transform: rotate(-12deg) scale(1.08); }
   aspect-ratio: 1/1;
   transform: rotate(1.5deg);
 }
-.hero-art::before{
-  /* corner tape on the hero image */
-  content: '';
-  position: absolute;
-  top: -14px;
-  right: 28px;
-  width: 76px;
-  height: 28px;
-  background: rgba(171, 209, 220, .78);
-  border: 1px solid rgba(59, 52, 42, .08);
-  box-shadow: var(--shadow-tape);
-  transform: rotate(6deg);
-  z-index: 2;
+.hero-art::before,
+.hero-art::after{
+  display: none; /* no tape on the homepage hero image */
 }
 
 @media (max-width: 860px){
