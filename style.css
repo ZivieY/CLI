@@ -450,18 +450,6 @@ section{ padding: 78px 0; }
   padding: clamp(30px, 5vw, 56px);
   box-shadow: var(--shadow);
 }
-.frame-card::before{
-  content: '';
-  position: absolute;
-  top: -14px;
-  left: 42px;
-  width: 72px;
-  height: 26px;
-  background: rgba(236, 213, 159, .82);
-  border: 1px solid rgba(59, 52, 42, .08);
-  box-shadow: var(--shadow-tape);
-  transform: rotate(-4deg);
-}
 .frame-card + .frame-card{ margin-top: 30px; }
 .frame-card:nth-of-type(even){ transform: rotate(.6deg); }
 .frame-card:nth-of-type(odd){ transform: rotate(-.6deg); }
@@ -561,6 +549,7 @@ section{ padding: 78px 0; }
   box-shadow: var(--shadow);
   transition: transform .2s ease;
 }
+.team-photo::after{ display: none; } /* no tape on team photos */
 .team-photo:hover{ transform: rotate(0deg) scale(1.01); }
 .team-card h3{ margin-bottom: 2px; }
 .team-card .role{ font-family: var(--hand); font-weight: 700; font-size: 1.05rem; color: var(--sky-3); text-transform: none; letter-spacing: 0; margin-bottom: 6px; display:block; }
@@ -612,6 +601,7 @@ section{ padding: 78px 0; }
   box-shadow: var(--shadow);
   transition: transform .22s ease;
 }
+.piece-cover::after{ display: none; } /* no tape on Bunny Tales covers */
 .piece-card:hover .piece-cover{ transform: translateY(-4px) rotate(0deg); }
 .piece-title{ font-family: var(--display); font-size: 1.02rem; margin-bottom: 2px; }
 .piece-meta{ font-size: .82rem; color: var(--ink-soft); margin-bottom: 2px; }
